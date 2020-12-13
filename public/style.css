@@ -1,0 +1,16 @@
+
+
+html {
+  background: url(https://www.gannett-cdn.com/-mm-/3603a7abc16be2773c8ce44c8e1a337683ef4e2e/c=0-176-3365-2069/local/-/media/2019/11/25/USATODAY/usatsports/gettyimages-1096506924.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+section  {
+  opacity: 0.7;
+  font-family: 'Langar', cursive;
+}
+
