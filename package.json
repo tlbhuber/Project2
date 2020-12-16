@@ -1,11 +1,30 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bulma": "^0.9.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.3.5"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "Project2",
+  "description": "fast-tundra-43886\r https://fast-tundra-43886.herokuapp.com/ | https://git.heroku.com/fast-tundra-43886.git",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlbhuber/Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlbhuber/Project2/issues"
+  },
+  "homepage": "https://github.com/tlbhuber/Project2#readme"
 }
