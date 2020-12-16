@@ -1,0 +1,51 @@
+
+
+ .section {
+   font-family: 'Montserrat', sans-serif;
+   opacity: 0.95;
+ }
+
+ .control {
+   font-family: 'Montserrat', sans-serif;
+ }
+ .log-in {
+   font-family: 'Montserrat', sans-serif;
+   opacity: 0.95;
+ }
+   .sign-up{
+      font-family: 'Montserrat', sans-serif;
+   opacity: 0.95;
+   }
+ 
+ .box {
+   font-family: 'Montserrat', sans-serif;
+   opacity: 0.95;
+ }
+
+.navbar-item {
+   font-family: 'Montserrat', sans-serif;
+}
+html {
+   background: url(../imgs/background2.jpg);
+     /* no-repeat center center fixed; */
+   /* -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover; */
+   background-size: cover;
+   background-attachment: fixed;
+   
+ }
+
+
+
+ .footer{
+    opacity: 0.95;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      overflow:hidden;
+      height: 20px;
+  
+  }
+ 
+  
