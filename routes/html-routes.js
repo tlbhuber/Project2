@@ -26,4 +26,8 @@ module.exports = function(app) {
   app.get("/post", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/post.html"));
   });
+
+  app.get("/all-strains", (req,res)=>{
+    res.sendFile(path.join(__dirname, "../public/allstrains.html"));
+  })
 };

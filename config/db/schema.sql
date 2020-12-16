@@ -8,5 +8,6 @@ CREATE TABLE Strains
     name varchar(100),
     race varchar(50),
     flavors TEXT,
-    medical TEXT
+    medical TEXT,
+    primary key (id)
 )
