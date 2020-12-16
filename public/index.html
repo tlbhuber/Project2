@@ -25,7 +25,7 @@
             <a class="navbar-item" href="signup.html">Sign Up</a>
         </div>
       </nav>
-
+      <body background="../imgs/">
       <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
@@ -49,33 +49,63 @@
           </div>
         </div>
       </div>
+    </div>
 
   
-
-  <section class="section">
-    <div class="container has-text-centered">
+    <section class="section">
+      <div class="container has-text-centered">
         <div class="box">
-
-      <h1 class="title">
-        
-          <img src="../imgs/herbizzle.png"> 
-      </h1>
-    
-      <p class="subtitle">
-        Track the Medical Marijuana strains that work best for you.
-      </p>
-
-      <div class="control">
-          <p>Not sure which strain is right for you? Select a strain to learn more!</p>
-        <div class="select is-success" id="strains-list">
-          <select>
-            <option>Select Strain!</option>
-            <option>Option 1</option>
-          </select>
+          <h1 class="title">
+            <img src="../imgs/herbizzle.png">
+          </h1>
+          <p class="subtitle">
+            Track the Medical Marijuana strains that work best for you.
+          </p>
+          <div class="columns">
+            <div class="column">
+              <!-- Strain Name -->
+              <div>
+                <ul id="strainList">
+                  <h2>Most Popular Strains</h2>
+                  <li><a>OG Kush</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/171214_38919_OGkush_SAF_1-768x1024.jpg -->
+                  <li><a>Pineapple Express</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/180315_53294_PineappleExpress_1-225x300.jpg -->
+                  <li><a>Purple AK-47</a></li>
+                  <!-- https://images.weedmaps.com/pictures/users/004/737/179/original/71785049_171020_12477_Ak47_1.jpg?fit=fill&fill=solid&fill-color=%23FFFFFF&w=250&h=250 -->
+                  <li><a>Blue Dream</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/20171228_48822_F_BlueDream_1-1-225x300.jpg -->
+                  <li><a>Gelato</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/171207_45517_Gelato_SAF_1-768x1024.jpg -->
+                  <li><a>Green Crack</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/171222_Bonsai-Cultivation_Green-Crack_1-1-300x300.jpg -->
+                  <li><a>Purple Haze</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/180208_32587_PurpleHaze_1-768x1024.jpg -->
+                  <li><a>Super Sour Diesel</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/171207_45517_Gelato_SAF_1-1-768x1024.jpg -->
+                  <li><a>Wedding Cake</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/180308_47149_WeddingCake_1-225x300.jpg -->
+                  <li><a>Girl Scout Cookies</a></li>
+                  <!-- https://weedmaps.com/news/wp-content/uploads/2020/05/171228_33422_Gelato_SAF_1-768x1024.jpg -->
+                  <div class="field">
+                    <div class="control">
+                      <input class="input is-primary" id="input" type="text" placeholder="Name of Strain">
+                      <button class="button is-black" id="search">Submit Search</button>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              Information
+              <div id="strainInfo"></div>
+            </div>
+          </div>
         </div>
-      </div>
-     </div>
-   </section>
+    </section>
+  
+  
+ 
 
    <footer class="footer">
     <div class="container">
@@ -86,13 +116,7 @@
       </div>
     </div>
   </footer>
-  <!-- <script>
-    $(".button").click(function() {}
-
-    $(".modal").removeClass("is-active");
-
-      }); -->
-
+  
      </script>
 
   <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>

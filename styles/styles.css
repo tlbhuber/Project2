@@ -3,6 +3,7 @@
  .section {
    font-family: 'Montserrat', sans-serif;
    opacity: 0.95;
+   
  }
 
  .control {
@@ -20,6 +21,9 @@
  .box {
    font-family: 'Montserrat', sans-serif;
    opacity: 0.95;
+   flex-direction: column;
+   
+   
  }
 
 .navbar-item {
@@ -32,20 +36,17 @@ html {
    -moz-background-size: cover;
    -o-background-size: cover; */
    background-size: cover;
-   background-attachment: fixed;
+   /* background-attachment: fixed; */
    
  }
 
 
 
- .footer{
-    opacity: 0.95;
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-      overflow:hidden;
-      height: 20px;
-  
-  }
- 
-  
+    .footer { 
+      position: fixed; 
+      padding: 10px 10px 0px 10px; 
+      bottom: 0; 
+      width: 100%; 
+      /* Height of the footer*/  
+      height: 40px;
+    }
