@@ -12,7 +12,7 @@ function getPosts(){
             var nothingToSee = $("<div>").html("<h1 class='is-size-4'>Uh oh! You don't have any posts yet!</h1><br/> <a href='post.html'>Write your first post!</a>").addClass("box has-text-centered");
             $("#allPosts").append(nothingToSee);
         }
-
+        
         for(var i = 0; i < data.length; i++){
         var allPosts = $("#allPosts"); // Where all child elements should be appended to
 
