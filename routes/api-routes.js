@@ -59,6 +59,15 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
+  // Route for deleting a post
+  app.delete("/api/delete", function(req,res){
+    db.Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+  })
+
   // Route for getting some data about our user to be used client side
   app.get("/post", (req, res) => {
     if (!req.user) {

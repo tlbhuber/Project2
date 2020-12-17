@@ -9,28 +9,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 
 <body>
     <nav class="navbar is-white" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="index.html" >
-            <img src="../imgs/leaflogo.png" style="max-height: 120px;" alt="HERBIZZLE">
+            <img src="./assets/imgs/leaflogo.png" style="max-height: 80px;" alt="HERBIZZLE">
           </a>
           
         </div>
 
+        <div class="navbar-start">
+            <a class="navbar-item" href="/post.html">Post</a>
+            <a class="navbar-item" href="/allposts.html">View Posts</a>
+          </div>
+  
+
         <div class="navbar-end">
-            <a class="navbar-item" href="login.html">Login</a>
-            <a class="navbar-item" href="signup.html">Sign Up</a>
+            <a class="navbar-item" href="/logout">Logout</a>
         </div>
       </nav>
 
     <section class="section">
 
-        <div class="container">
-            <a href="allposts.html">Click here to view all posts</a>
+        <div class="container box">
+
             <form class="control">
 
                 <div class="field">
@@ -63,7 +68,7 @@
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link" type="submit" id="submitBtn">Submit</button>
+                        <button class="button is-primary" type="submit" id="submitBtn">Submit</button>
                     </div>
                 </div>
             </form>
