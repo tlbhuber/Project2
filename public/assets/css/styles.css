@@ -1,4 +1,6 @@
-
+nav img {
+  max-height: 80px;
+}
 
  .section {
    font-family: 'Montserrat', sans-serif;
@@ -21,8 +23,7 @@
  .box {
    font-family: 'Montserrat', sans-serif;
    opacity: 0.95;
-   flex-direction: column;
-   
+  
    
  }
 
@@ -39,9 +40,6 @@ html {
    /* background-attachment: fixed; */
    
  }
-
-
-
     .footer { 
       position: fixed; 
       padding: 10px 10px 0px 10px; 
