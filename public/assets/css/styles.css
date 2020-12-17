@@ -1,4 +1,6 @@
-
+nav img {
+  max-height: 80px;
+}
 
  .section {
    font-family: 'Montserrat', sans-serif;

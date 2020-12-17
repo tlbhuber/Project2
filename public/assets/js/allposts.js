@@ -7,7 +7,10 @@ function getPosts(){
     $.get("/api/allposts", function(data){
         //console.log("Test View All Posts: " + JSON.stringify(data))
 
-        if (data.length === 0){ console.log("Nothing")}
+        if (data.length === 0){ 
+            var nothingToSee = $("<div>").html("<h1 class='is-size-4'>Uh oh! You don't have any posts yet!</h1><br/> <a href='post.html'>Write your first post!</a>").addClass("box has-text-centered");
+            $("#allPosts").append(nothingToSee);
+        }
 
         for(var i = 0; i < data.length; i++){
         var allPosts = $("#allPosts"); // Where all child elements should be appended to
