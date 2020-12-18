@@ -2,49 +2,51 @@ nav img {
   max-height: 80px;
 }
 
- .section {
-   font-family: 'Montserrat', sans-serif;
-   opacity: 0.95;
-   
- }
+.section {
+  font-family: "Cinzel", serif;
+  opacity: 0.95;
+}
 
- .control {
-   font-family: 'Montserrat', sans-serif;
- }
- .log-in {
-   font-family: 'Montserrat', sans-serif;
-   opacity: 0.95;
- }
-   .sign-up{
-      font-family: 'Montserrat', sans-serif;
-   opacity: 0.95;
-   }
- 
- .box {
-   font-family: 'Montserrat', sans-serif;
-   opacity: 0.95;
-  
-   
- }
+.control {
+  font-family: "Cinzel", serif;
+}
+.log-in {
+  font-family: "Cinzel", serif;
+  opacity: 0.95;
+}
+.sign-up {
+  font-family: "Cinzel", serif;
+  opacity: 0.95;
+}
+
+.box {
+  font-family: "Cinzel", serif;
+  opacity: 0.95;
+}
 
 .navbar-item {
-   font-family: 'Montserrat', sans-serif;
+  font-family: "Cinzel", serif;
 }
 html {
-   background: url(../imgs/background2.jpg);
-     /* no-repeat center center fixed; */
-   /* -webkit-background-size: cover;
+  background: url(../imgs/background2.jpg);
+  /* no-repeat center center fixed; */
+  /* -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover; */
-   background-size: cover;
-   /* background-attachment: fixed; */
-   
- }
-    .footer { 
-      position: fixed; 
-      padding: 10px 10px 0px 10px; 
-      bottom: 0; 
-      width: 100%; 
-      /* Height of the footer*/  
-      height: 40px;
-    }
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+ul {
+  display: inline-block;
+  text-align: left;
+  margin-left: 20%;
+}
+
+.footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer*/
+  height: 40px;
+}
