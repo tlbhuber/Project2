@@ -5,7 +5,6 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
@@ -26,11 +25,9 @@ require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT || 8080, function(){
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
+      "Server is listening"
     );
   });
 });
