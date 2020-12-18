@@ -3,29 +3,29 @@ nav img {
 }
 
 .section {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
   opacity: 0.95;
 }
 
 .control {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
 }
 .log-in {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
   opacity: 0.95;
 }
 .sign-up {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
   opacity: 0.95;
 }
 
 .box {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
   opacity: 0.95;
 }
 
 .navbar-item {
-  font-family: "Cinzel", serif;
+ font-family: 'Philosopher', sans-serif;
 }
 html {
   background: url(../imgs/background2.jpg);
@@ -43,7 +43,7 @@ ul {
 }
 
 .footer {
-  position: fixed;
+  position: relative;
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
