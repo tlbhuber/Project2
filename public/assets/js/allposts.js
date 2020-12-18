@@ -1,9 +1,5 @@
 $(document).ready(function () {
-    /*
-        getPosts() grabs all of the logged in user's posts and displays them dynamically
-        to the DOM using Bulma.io's tile CSS framework. 
-    */
-function getPosts(){
+
     $.get("/api/allposts", function(data){
         //console.log("Test View All Posts: " + JSON.stringify(data))
 
@@ -12,15 +8,16 @@ function getPosts(){
             var nothingToSee = $("<div>").html("<h1 class='is-size-4'>Uh oh! You don't have any posts yet!</h1><br/> <a href='post.html'>Write your first post!</a>").addClass("box has-text-centered");
             $("#allPosts").append(nothingToSee);
         }
-        
+
         for(var i = 0; i < data.length; i++){
         var allPosts = $("#allPosts"); // Where all child elements should be appended to
 
         // The ancestor is where all tile parents need to be appended to
-        var ancestor = $("<div>").addClass("tile is-ancestor box");
+        var ancestor = $("<div>").addClass("tile is-ancestor box").attr('id', 'printable'+data[i].id);
 
-        // Trashcan icon allows user to delete the associated post
-        var trash = $("<a>").attr("href", "#").html("<br/><i class='fas fa-trash-alt'></i>")
+        var controlsUL = $("<ul>").addClass("controls");
+        var trashLI = $("<li>").html("<a href='#'><i class='fas fa-trash-alt'></i></a>");
+        var printLI = $("<li>").html("<a href='#' id='printer'><i class='fas fa-print'></i></a>");
 
         // tileParent is where all div elements need to be appended to
         var tileParent = $("<div>").addClass("tile is-4 is-vertical is-parent");
@@ -52,13 +49,25 @@ function getPosts(){
         // Append our parents to the ancestor
         tileParent.appendTo(ancestor);
         tileParentHor.appendTo(ancestor);
-        ancestor.append(trash);
+
+        // Append our delete & print buttons to the ancestor
+        controlsUL.append(trashLI).append(printLI);
+        ancestor.append(controlsUL);
 
         // Append our ancestor to a current DOM element
         ancestor.appendTo(allPosts);
         }
-    });
-}
 
-getPosts();
+        $("#printer").on("click", function(){
+            console.log($(this).closest(".is-ancestor").attr("id"));
+            var toPrint = $(this).closest(".is-ancestor").attr("id")
+        //     printJS({
+        //         printable: toPrint,
+        //         type: 'html',
+        //         targetStyle: ['*'],
+        //         header: 'Herbizzle | My Journal Entry'
+        //     })
+         })
+    });
+
 });
