@@ -2,12 +2,13 @@ $(document).ready(function () {
     
     // Button handlers for delete, print, print all.
     $(document).on("click", "button.delete", handlePostDelete);
+    $(document).on("click", "button.edit", handlePostEdit);
     $(document).on("click", "button.print", handlePostPrint);
     $(document).on("click", "button.printAll", handleAllPrint);
 
     // Call our api/allposts route to grab all of the logged-in
     // user's blog posts.
-    $.get("/api/allposts", function(data){
+    $.get("/api/posts", function(data){
         // If there aren't any posts, prompt the user to make one.
         if (data.length === 0){ 
             var nothingToSee = $("<div>").html("<h1 class='is-size-4'>Uh oh! You don't have any posts yet!</h1><br/> <a href='post.html'>Write your first post!</a>").addClass("box has-text-centered");
@@ -29,7 +30,8 @@ $(document).ready(function () {
 
         // Make the dynamic trash & printer icon
         var trashP = $("<button>").addClass("delete");
-        var printP = $("<button>").addClass("print icon button is-white is small").attr("id", "print").html("<i class='fas fa-print'></i>")
+        var printP = $("<button>").addClass("print icon button is-white is-small").attr("id", "print").html("<i class='fas fa-print'></i>");
+        var editP = $("<button>").addClass("edit icon button is-white is-small").html("<i class='fas fa-edit'></i>")
 
         // tileParent is where all div elements need to be appended to
         var tileParent = $("<div>").addClass("tile is-4 is-vertical is-parent");
@@ -63,7 +65,7 @@ $(document).ready(function () {
         tileParentHor.appendTo(ancestor);
 
         // Append our delete & print buttons to the ancestor
-        ancestor.append(trashP).append(printP);
+        ancestor.append(trashP).append(editP).append(printP);
 
         // Append our ancestor to a current DOM element
         ancestor.appendTo(allPosts);
@@ -79,6 +81,12 @@ $(document).ready(function () {
     // Prints the entire 'allPosts' id.
     function handleAllPrint(){
         printJS({printable: 'allPosts', type: 'html'});
+    }
+
+    // Determines which post to edit, by id.
+    function handlePostEdit(){
+        var clicked = $(this).closest(".is-ancestor").attr("data-id");
+        window.location.href="/post?post_id=" + clicked;
     }
 
     // Determines which post to delete, by id.
