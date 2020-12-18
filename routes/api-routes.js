@@ -73,10 +73,10 @@ module.exports = function (app) {
   });
 
     // Route for deleting a post
-    app.delete("/api/delete", function(req,res){
+    app.delete("/api/delete/:id", function(req,res){
       db.Post.destroy({
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
     })
