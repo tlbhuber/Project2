@@ -3,9 +3,9 @@ $(document).ready(function () {
     // This code allows for an image to appear when the user hovers over the link of the
     // most popular strains
     $(".strainImage").mouseenter(function () {
-            // on mouse hover grab this. data-image and then append to strainInfo
-            // download all the photos and have it loop through the photos to find the image that matches the data-name of the one that is being hovered over. 
-                    //either this.text or grabbing the data-name like you did below with li.image
+        // on mouse hover grab this. data-image and then append to strainInfo
+        // download all the photos and have it loop through the photos to find the image that matches the data-name of the one that is being hovered over. 
+        //either this.text or grabbing the data-name like you did below with li.image
 
 
 
@@ -17,9 +17,7 @@ $(document).ready(function () {
             $(this).parent('li').append(imageTag);
         }
     });
-
-
-
+// hides the image after moving 
     $(".strainImage").mouseleave(function () {
         $(this).parent('li').children('li.image').hide();
     });
@@ -47,8 +45,8 @@ $(document).ready(function () {
 
         $("#strainInfo").prepend(ulInfo)
 
-// Created code to allow for the API info to be pulled and displayed based on what link the 
-// user clicks on.
+        // Created code to allow for the API info to be pulled and displayed based on what link the 
+        // user clicks on.
         $("#strainList").on("click", "li", function (e) {
             $("#strainInfo").empty();
             // Find what li was clicked on, get value
@@ -83,12 +81,12 @@ $(document).ready(function () {
 
 
                 ulInfo.append(nameStrain, liName, nameMed, liMed, namePos, liPos, nameNeg, liNeg
-                    
-                    
-                    ).css("text-align", "left");
+
+
+                ).css("text-align", "left");
                 $("#strainInfo").prepend(ulInfo);
 
-               
+
 
                 console.log(response[data].effects.medical);
                 console.log(response[data].effects.positive);
