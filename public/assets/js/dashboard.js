@@ -9,11 +9,11 @@ $(document).ready(function () {
    });
 
    // Fetch the post data and display it to the DOM.
-   $.get("/api/allposts", function(data){
+   $.get("/api/posts", function(data){
     postsEl.text(data.length);
    });
 
-   $.get("/api/allstrains", function(data){
+   $.get("/api/strains", function(data){
     strainsEl.text(data.length);
    })
 });

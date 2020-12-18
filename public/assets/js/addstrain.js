@@ -8,11 +8,11 @@ $(document).ready(function () {
     // Create a variable for our current user id.
     var userId;
     // GET our current user id and store it in userId.
-    $.get("/api/getuser", function(response){
-        userId = response;
+    $.get("/user", function(response){
+        userId = response.id;
     });
 
-    $.get("/api/allstrains", function(response){
+    $.get("/api/strains", function(response){
 
         // All table elements are appended here.
         var table = $("<table>").addClass("table is-fullwidth");
@@ -66,7 +66,7 @@ $(document).ready(function () {
             }
         
         // POST the supplied input values as an object.
-        $.post("/api/addstrain/", newStrain, function () {
+        $.post("/api/strain/", newStrain, function () {
             location.reload();
             console.log("New strain added!")
         })
@@ -81,7 +81,7 @@ $(document).ready(function () {
           function deletePost(id) {
             $.ajax({
             method: "DELETE",
-            url: "/api/deletestrain/" + id
+            url: "/api/strain/" + id
             })
             .then(function() {
                 console.log("Deleted");
