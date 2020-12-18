@@ -9,5 +9,9 @@ CREATE TABLE Strains
     race varchar(50),
     flavors TEXT,
     medical TEXT,
+<<<<<<< HEAD
     primary key(id)
+=======
+    primary key (id)
+>>>>>>> main
 )
