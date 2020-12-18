@@ -7,9 +7,22 @@ $(document).ready(function () {
     
     // Create a variable for our current user id.
     var userId;
+
+    // Create a variable for our strain names;
+    var strainName;
     // GET our current user id and store it in userId.
     $.get("/api/getuser", function(response){
         userId = response;
+    });
+
+    var strainList = $("#strainsList");
+    $.get("/api/allstrains", function(response){
+        console.log(response);
+        for(var i = 0; i < response.length; i++){
+            console.log(response[i].name)
+            var option = $("<option></option").val(response[i].name).text(response[i].name);
+            strainList.append(option);
+        }
     });
 
     // Handle the button click submission of our form fields.
@@ -22,7 +35,7 @@ $(document).ready(function () {
        // Build a new post object:
         var newPost = {
             title: title.val().trim(),
-            strain: strain.val().trim(),
+            strain: strainList.val(),
             entry: entry.val().trim(),
             effects: effects.val().trim(),
             UserId: userId

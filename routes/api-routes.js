@@ -39,9 +39,28 @@ module.exports = function (app) {
     });
   });
 
+    /* Route for creating a new strain */
+    app.post("/api/addstrain", function (req, res) {
+      db.Strains.create({
+        name: req.body.name,
+        race: req.body.race,
+        UserId: req.body.UserId
+      }).then(function (dbPost) {
+        res.json(dbPost);
+      });
+    });
+
     // Route for getting all posts for a logged in user.
     app.get("/api/allposts", (req,res) => {
       db.Post.findAll({
+        where: {UserId: req.user.id}
+      }).then(function (dbPost){
+        res.json(dbPost);
+      })
+    });
+
+    app.get("/api/allstrains", (req,res) => {
+      db.Strains.findAll({
         where: {UserId: req.user.id}
       }).then(function (dbPost){
         res.json(dbPost);
@@ -53,23 +72,23 @@ module.exports = function (app) {
     res.json(req.user.id);
   });
 
+    // Route for deleting a post
+    app.delete("/api/delete", function(req,res){
+      db.Post.destroy({
+        where: {
+          id: req.body.id
+        }
+      })
+    })
+
   // Route for logging user out.
   app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
 
-  // Route for deleting a post
-  app.delete("/api/delete", function(req,res){
-    db.Post.destroy({
-      where: {
-        id: req.body.id
-      }
-    })
-  })
-
   // Route for getting some data about our user to be used client side
-  app.get("/post", (req, res) => {
+  app.get("/user", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
