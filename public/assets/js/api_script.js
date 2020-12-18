@@ -7,18 +7,17 @@ $(document).ready(function () {
         // download all the photos and have it loop through the photos to find the image that matches the data-name of the one that is being hovered over. 
         //either this.text or grabbing the data-name like you did below with li.image
 
-
-
         if ($(this).parent('li').children('li.image').length) {
-            $(this).parent('li').children('li.image').show();
+            $("#strainImage").parent('li').children('li.image').show();
         } else {
             var image_name = $(this).data('image');
             var imageTag = '<li class="image" >' + '<img src="' + image_name + '" alt="image" height="25" />' + '</li>';
-            $(this).parent('li').append(imageTag);
+            $("#strainImage").empty().append(imageTag);
         }
     });
+    
 // hides the image after moving 
-    $(".strainImage").mouseleave(function () {
+    $("#strainImage").mouseleave(function () {
         $(this).parent('li').children('li.image').hide();
     });
 
