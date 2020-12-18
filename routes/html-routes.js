@@ -8,7 +8,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/post");
+      res.redirect("/dashboard");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -16,18 +16,28 @@ module.exports = function(app) {
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/post");
+      res.redirect("/dashboard");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  /*
+  /post, /allposts, and /dashboard require authentication 
+  */
   app.get("/post", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/post.html"));
   });
 
-  app.get("/all-strains", (req,res)=>{
-    res.sendFile(path.join(__dirname, "../public/allstrains.html"));
-  })
+  app.get("/allposts", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/allposts.html"));
+  });
+
+  app.get("/addstrain", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/addstrain.html"));
+  });
+
+  app.get("/dashboard", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+  });
+
 };

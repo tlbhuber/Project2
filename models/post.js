@@ -15,6 +15,15 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.TEXT
       }
     });
+
+    Post.associate = function(models) {
+      Post.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
+
     return Post;
   };
   
