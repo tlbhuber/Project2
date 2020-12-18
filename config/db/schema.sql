@@ -2,7 +2,7 @@ CREATE database herbizzle;
 
 USE herbizzle;
 
-CREATE TABLE Strains
+CREATE TABLE strains
 (
     id integer auto_increment not null,
     name varchar(100),
