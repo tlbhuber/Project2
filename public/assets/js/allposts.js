@@ -74,6 +74,7 @@ $(document).ready(function () {
             console.log("Deleted");
         });
 
+        // Refresh the page to get rid of stale data
         location.reload();
     }
 
