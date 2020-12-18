@@ -1,6 +1,7 @@
 $(document).ready(function () {
-   var userEl = $("#user");
-    var postsEl = $("#posts")
+    var userEl = $("#user");
+    var postsEl = $("#posts");
+    var strainsEl = $("#strainsEl");
 
     // Fetch the user data and display it to the DOM.
    $.get("/user", function(data){
@@ -9,7 +10,10 @@ $(document).ready(function () {
 
    // Fetch the post data and display it to the DOM.
    $.get("/api/allposts", function(data){
-    console.log(data.length);
     postsEl.text(data.length);
    });
+
+   $.get("/api/allstrains", function(data){
+    strainsEl.text(data.length);
+   })
 });
