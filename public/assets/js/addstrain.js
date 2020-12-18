@@ -67,7 +67,7 @@ $(document).ready(function () {
         
         // POST the supplied input values as an object.
         $.post("/api/addstrain/", newStrain, function () {
-            alert("Strain added!")
+            location.reload();
             console.log("New strain added!")
         })
     });
