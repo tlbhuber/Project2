@@ -28,9 +28,9 @@ Project is created with:
 ## Credits
 Corrine Pusillo,
 Timothy Balascak-Huber,
-Lindsey Banginski,
+Lindsey Baginski,
 Chiagozie Lhuoma,
-Britney B,
+Britney Borrero ,
 Heena Rajpal
 
 ## Url
