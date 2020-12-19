@@ -10,14 +10,21 @@ To run this project, clone it locally :
 
 ```
 $ install npm 
-$ install npm express
+$ install express
+$ run node server.js
 ```
 
 ## Technologies
 Project is created with:
 * [title]https://bulma.io/
 * [title]http://strains.evanbusse.com/
-* [title]
+* Node
+* Heroku
+* JawsDB
+* Express
+* PrintJS
+* The Strain API 
+* Passport JS
 
 ## Credits
 Corrine Pusillo

@@ -1,23 +1,37 @@
 $(document).ready(function () {
+    
+    // Button handlers for delete, print, print all.
+    $(document).on("click", "button.delete", handlePostDelete);
+    $(document).on("click", "button.edit", handlePostEdit);
+    $(document).on("click", "button.print", handlePostPrint);
+    $(document).on("click", "button.printAll", handleAllPrint);
 
-    $.get("/api/allposts", function(data){
-        //console.log("Test View All Posts: " + JSON.stringify(data))
-
+    // Call our api/allposts route to grab all of the logged-in
+    // user's blog posts.
+    $.get("/api/posts", function(data){
         // If there aren't any posts, prompt the user to make one.
         if (data.length === 0){ 
             var nothingToSee = $("<div>").html("<h1 class='is-size-4'>Uh oh! You don't have any posts yet!</h1><br/> <a href='post.html'>Write your first post!</a>").addClass("box has-text-centered");
             $("#allPosts").append(nothingToSee);
         }
-
+        
+        // Loop through the returned promise from our api call:
         for(var i = 0; i < data.length; i++){
-        var allPosts = $("#allPosts"); // Where all child elements should be appended to
+        // Make Sequelizes' createdAt a human-readble date format
+        var entryTime = data[i].createdAt;
+        entryTime = entryTime.substring(0,10);
+
+        /* ============ DYNAMIC HTML STRUCTURE ============ */
+        // Where all child elements should be appended to
+        var allPosts = $("#allPosts"); 
 
         // The ancestor is where all tile parents need to be appended to
-        var ancestor = $("<div>").addClass("tile is-ancestor box").attr('id', 'printable'+data[i].id);
+        var ancestor = $("<div>").addClass("tile is-ancestor box").attr('data-id', data[i].id).attr('id', data[i].id);
 
-        var controlsUL = $("<ul>").addClass("controls");
-        var trashLI = $("<li>").html("<a href='#'><i class='fas fa-trash-alt'></i></a>");
-        var printLI = $("<li>").html("<a href='#' id='printer'><i class='fas fa-print'></i></a>");
+        // Make the dynamic trash & printer icon
+        var trashP = $("<button>").addClass("delete");
+        var printP = $("<button>").addClass("print icon button is-white is-small").attr("id", "print").html("<i class='fas fa-print'></i>");
+        var editP = $("<button>").addClass("edit icon button is-white is-small").html("<i class='fas fa-edit'></i>")
 
         // tileParent is where all div elements need to be appended to
         var tileParent = $("<div>").addClass("tile is-4 is-vertical is-parent");
@@ -26,14 +40,14 @@ $(document).ready(function () {
         var pTitle = $("<p>").addClass("title").text(data[i].id + ": " + data[i].title);
 
         var tileForEffects = $("<article>").addClass("tile is-child box");
-        var pEffects = $("<p>").text("Effects: " + data[i].effects);
+        var pEffects = $("<p>").html("<b>Effects:</b> " + data[i].effects);
 
         // Make a new tileParent for the horizontal tiles, append to ancestor
         var tileParentHor = $("<div>").addClass("tile is-parent");
         // tileForEntry and pEntry will be appended to tileParentHor
         var tileForEntry = $("<article>").addClass("tile is-child box");
-        var pEntry = $("<p>").text("Journal Entry: " + data[i].entry);
-        var pStrain = $("<p>").text("Strain: " + data[i].strain);
+        var pEntry = $("<p>").html(entryTime + "<br/><b>Journal Entry:</b> " + data[i].entry);
+        var pStrain = $("<p>").html("<b>Strain: </b>" + data[i].strain);
         
         // Append elements for tileParent
         pTitle.appendTo(tileForTitle);
@@ -51,23 +65,46 @@ $(document).ready(function () {
         tileParentHor.appendTo(ancestor);
 
         // Append our delete & print buttons to the ancestor
-        controlsUL.append(trashLI).append(printLI);
-        ancestor.append(controlsUL);
+        ancestor.append(trashP).append(editP).append(printP);
 
         // Append our ancestor to a current DOM element
         ancestor.appendTo(allPosts);
         }
-        $(document).on("click", "button.delete", );
-        $("#printer").on("click", function(){
-            console.log($(this).closest(".is-ancestor").attr("id"));
-            var toPrint = $(this).closest(".is-ancestor").attr("id")
-        //     printJS({
-        //         printable: toPrint,
-        //         type: 'html',
-        //         targetStyle: ['*'],
-        //         header: 'Herbizzle | My Journal Entry'
-        //     })
-         })
     });
 
+    // Determines which id to print and prints to PDF.
+    function handlePostPrint(){
+        var clicked = $(this).closest(".is-ancestor").attr("id");
+            printJS({printable: clicked, type: 'html'});
+    }
+
+    // Prints the entire 'allPosts' id.
+    function handleAllPrint(){
+        printJS({printable: 'allPosts', type: 'html'});
+    }
+
+    // Determines which post to edit, by id.
+    function handlePostEdit(){
+        var clicked = $(this).closest(".is-ancestor").attr("data-id");
+        window.location.href="/post?post_id=" + clicked;
+    }
+
+    // Determines which post to delete, by id.
+    function handlePostDelete(){
+        var clicked = $(this).closest(".is-ancestor").attr("data-id");
+        deletePost(clicked);
+    }
+
+      // This function does an API call to delete posts
+    function deletePost(id) {
+        $.ajax({
+        method: "DELETE",
+        url: "/api/delete/" + id
+        })
+        .then(function() {
+            console.log(`Deleted blog post with id of ${id}`);
+        });
+        // Refresh the page to get rid of stale data
+        location.reload();
+    }
 });

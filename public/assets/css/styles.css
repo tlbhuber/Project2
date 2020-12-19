@@ -41,12 +41,24 @@ ul {
   text-align: left;
   margin-left: 20%;
 }
-
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between
+}
 .footer {
   position: relative;
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
-  /* Height of the footer*/
-  height: 40px;
+
+}
+button .print {
+  border: none;
+}
+
+.fa-5x {
+  color: #01D1B2 !important;
+  margin-bottom: 25px;
 }
