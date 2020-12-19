@@ -29,7 +29,7 @@ Project is created with:
 Corrine Pusillo,
 Timothy Balascak-Huber,
 Lindsey Baginski,
-Chiagozie Lhuoma,
+Chiagozie Ihuoma,
 Britney Borrero ,
 Heena Rajpal
 
