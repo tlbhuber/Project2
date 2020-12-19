@@ -10,14 +10,13 @@ To run this project, clone it locally :
 
 ```
 $ install npm 
-$ install express
 $ run node server.js
 ```
 
 ## Technologies
 Project is created with:
-* [title]https://bulma.io/
-* [title]http://strains.evanbusse.com/
+* Bulma CSS
+* The Strains API 
 * Node
 * Heroku
 * JawsDB
@@ -27,11 +26,11 @@ Project is created with:
 * Passport JS
 
 ## Credits
-Corrine Pusillo
-Timothy Balascak-Huber
-Lindsey Banginski
-Chiagozie Lhuoma
-Britney B
+Corrine Pusillo,
+Timothy Balascak-Huber,
+Lindsey Banginski,
+Chiagozie Lhuoma,
+Britney B,
 Heena Rajpal
 
 ## Url
