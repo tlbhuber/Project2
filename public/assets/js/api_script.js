@@ -19,7 +19,7 @@ $(document).ready(function () {
         $(this).parent('li').children('li.image').hide();
     });
     // API call to pull in the Name of the Strain, Medicical Usages, and Effects(Postive and Negative).
-    const queryURL = "http://strainapi.evanbusse.com/73isozx/strains/search/all";
+    const queryURL = "https://strainapi.evanbusse.com/73isozx/strains/search/all";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -84,7 +84,7 @@ $(document).ready(function () {
             let searchStrain = $("#input").val().trim();
             console.log(searchStrain);
 
-            const queryURL = "http://strainapi.evanbusse.com/73isozx/strains/search/all/";
+            const queryURL = "https://strainapi.evanbusse.com/73isozx/strains/search/all/";
 
             $.ajax({
                 url: queryURL,
