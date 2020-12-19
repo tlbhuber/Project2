@@ -1,7 +1,8 @@
 $(document).ready(function () {
     // This code allows for an image to appear when the user hovers over the link of the
     // most popular strains
-    $(".strainImage").mouseenter(function () {
+    $(".strainImage").mouseenter(function () 
+    {
         // on mouse hover grab this. data-image and then append to strainInfo
         // download all the photos and have it loop through the photos to find the image that matches the data-name of the one that is being hovered over.
         //either this.text or grabbing the data-name like you did below with li.image
@@ -22,7 +23,8 @@ $(document).ready(function () {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
+    }).then(function (response) 
+    {
         // This code allows for the first strain on the list to be displayed upon load of page.
         let preLoad = "OG Kush";
         let medEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
@@ -45,6 +47,8 @@ $(document).ready(function () {
         // Created code to allow for the API info to be pulled and displayed based on what link the
         // user clicks on.
         $("#strainList").on("click", "li", function (e) {
+            //this empties the 
+            
             $("#strainInfo").empty();
             // Find what li was clicked on, get value
             var clicked = $(this).text();
