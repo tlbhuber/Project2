@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/tlbhuber/Project2/issues"
   },
-  "homepage": "https://github.com/tlbhuber/Project2#readme"
+  "homepage": "https://github.com/tlbhuber/Project2#readme",
+  "devDependencies": {}
 }
