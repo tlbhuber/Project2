@@ -57,7 +57,7 @@ $(document).ready(function () {
         // Append our ancestor to a current DOM element
         ancestor.appendTo(allPosts);
         }
-
+        $(document).on("click", "button.delete", );
         $("#printer").on("click", function(){
             console.log($(this).closest(".is-ancestor").attr("id"));
             var toPrint = $(this).closest(".is-ancestor").attr("id")
