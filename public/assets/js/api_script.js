@@ -28,8 +28,8 @@ $(document).ready(function () {
         // This code allows for the first strain on the list to be displayed upon load of page.
         let preLoad = "OG Kush";
         let medEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
-        let posEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
-        let negEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
+        let posEffects = (response[preLoad].effects.positive).toString().replace(/,/g, ", ");
+        let negEffects = (response[preLoad].effects.negative).toString().replace(/,/g, ", ");
                 console.log(medEffects);
                 console.log(posEffects);
                 console.log(negEffects);
@@ -58,12 +58,12 @@ $(document).ready(function () {
 
             function setInfo(data) {
                 let medEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
-                let posEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
-                let negEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
+                let posEffects = (response[data].effects.positive).toString().replace(/,/g, ", ");
+                let negEffects = (response[data].effects.negative).toString().replace(/,/g, ", ");
 
                 let ulInfo = $("<ul>");
                 let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
-                let liName = $("<li>").text(preLoad);
+                let liName = $("<li>").text(data);
                 let nameMed = $("<li>").text("Can be used to treat (Medicial Usage): ").css("color", "black").css("font-weight", "bold");
                 let liMed = $("<li>").text(medEffects);
                 let namePos = $("<li>").text("Positive Effects: ").css("color", "green").css("font-weight", "bold");
@@ -81,6 +81,7 @@ $(document).ready(function () {
         });
         $("#search").on("click", function (e) {
             $("#strainInfo").empty();
+            $("#strainImage").empty();
             let searchStrain = $("#input").val().trim();
             console.log(searchStrain);
 
@@ -92,12 +93,12 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response[searchStrain]);
                 let medEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
-                let posEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
-                let negEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
+                let posEffects = (response[searchStrain].effects.positive).toString().replace(/,/g, ", ");
+                let negEffects = (response[searchStrain].effects.negative).toString().replace(/,/g, ", ");
 
                 let ulInfo = $("<ul>");
                 let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
-                let liName = $("<li>").text(preLoad);
+                let liName = $("<li>").text(searchStrain);
                 let nameMed = $("<li>").text("Can be used to treat (Medicial Usage): ").css("color", "black").css("font-weight", "bold");
                 let liMed = $("<li>").text(medEffects);
                 let namePos = $("<li>").text("Positive Effects: ").css("color", "green").css("font-weight", "bold");
