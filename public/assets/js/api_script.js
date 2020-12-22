@@ -30,6 +30,7 @@ $(document).ready(function () {
         let medEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
         let posEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
         let negEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
+
         let ulInfo = $("<ul>");
         let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
         let liName = $("<li>").text(preLoad);
@@ -55,8 +56,8 @@ $(document).ready(function () {
 
             function setInfo(data) {
                 let medEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
-                let posEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
-                let negEffects = (response[data].effects.medical).toString().replace(/,/g, ", ");
+                let posEffects = (response[data].effects.positive).toString().replace(/,/g, ", ");
+                let negEffects = (response[data].effects.negative).toString().replace(/,/g, ", ");
 
                 let ulInfo = $("<ul>");
                 let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
@@ -78,6 +79,7 @@ $(document).ready(function () {
         });
         $("#search").on("click", function (e) {
             $("#strainInfo").empty();
+            $("#strainImage").empty();
             let searchStrain = $("#input").val().trim();
             console.log(searchStrain);
 
@@ -89,8 +91,8 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response[searchStrain]);
                 let medEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
-                let posEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
-                let negEffects = (response[searchStrain].effects.medical).toString().replace(/,/g, ", ");
+                let posEffects = (response[searchStrain].effects.positive).toString().replace(/,/g, ", ");
+                let negEffects = (response[searchStrain].effects.negative).toString().replace(/,/g, ", ");
 
                 let ulInfo = $("<ul>");
                 let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
