@@ -28,11 +28,9 @@ $(document).ready(function () {
         // This code allows for the first strain on the list to be displayed upon load of page.
         let preLoad = "OG Kush";
         let medEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
-        let posEffects = (response[preLoad].effects.positive).toString().replace(/,/g, ", ");
-        let negEffects = (response[preLoad].effects.negative).toString().replace(/,/g, ", ");
-                console.log(medEffects);
-                console.log(posEffects);
-                console.log(negEffects);
+        let posEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
+        let negEffects = (response[preLoad].effects.medical).toString().replace(/,/g, ", ");
+
         let ulInfo = $("<ul>");
         let nameStrain = $("<li>").text("Strain Name: ").css("color", "black").css("font-weight", "bold");
         let liName = $("<li>").text(preLoad);
