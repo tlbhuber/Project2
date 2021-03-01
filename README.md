@@ -1,4 +1,4 @@
-* # Herbizzle
+# Herbizzle
 
 _Cannabis_** User-custom Note-taking application where a user can keep track of the effects that an individual medical strain had on them, upload pictures, and add positive or negative side effects. 
 
